@@ -1,0 +1,185 @@
+% TEMP:
+% - https://github.com/andiac/gemini-cam
+% - a fork of https://github.com/anishathalye/gemini
+% - also refer to https://github.com/k4rtik/uchicago-poster
+
+% TO-DO/NOTAS: 
+% - (!) abstract pode ser um bloco com fundo diferente ou mesmo com uma ornamentacao mais pipi para se destacar.
+% - orientar o tema/color scheme para ter esta template organizada (l8er que parece tramado)
+% - footer estar ligeiramente offset, espaco a mais a esquerda e a direita e eu n sei pq...
+% - logos tb estao ligeiramente offset, acho que tem valores hardcoded na template
+% - o alert block eh um bloco sem header so para o caso de querer continuar um anterior
+
+%---------------------------------------------------------------------------------------------------
+% Preamble
+%---------------------------------------------------------------------------------------------------
+\documentclass[final,20pt]{beamer}
+
+% import 
+\usepackage[
+orientation=portrait,
+size=a1,
+scale=1.15  % 20 pt * 1.15 = 23pt
+]{beamerposter}
+
+% for N columns pick \sepwidth and \colwidth such that (N+1)*\sepwidth + N*\colwidth = \paperwidth
+\newlength{\sepwidth}
+\newlength{\colwidth}
+\setlength{\sepwidth}{0.025\paperwidth}
+\setlength{\colwidth}{0.4625\paperwidth}
+\newcommand{\separatorcolumn}{\begin{column}{\sepwidth}\end{column}}
+
+% import the theme and the color theme
+\makeatletter
+\def\input@path{{styles/}}
+\makeatother
+\usetheme{gemini}     
+\usecolortheme{nott}  
+
+% figures & tables
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{booktabs}
+
+% math related packages
+\usepackage{amsmath}
+\usepackage{amssymb} 
+\usepackage{amsthm}
+
+% import and setup glossary
+\usepackage{glossaries-extra}
+%\makeglossaries  % helper script to print glossary
+\glsdisablehyper  % disable hyperlinks to glossary
+\input{glossary}
+
+% import and configure bibLaTeX, a more modern alternative to natbib
+\usepackage[
+backend=biber,  % more modern backend compared to bibtex
+style=numeric,  % citation style
+sorting=none,   % all entries are processed in citation order
+maxbibnames=4,  % maximum number of authors before truncating
+maxcitenames=1  % number of authors to show before the "et al."
+]{biblatex}
+\addbibresource{bibliography.bib}
+
+% decrease font size for bibliography
+\renewcommand*{\bibfont}{\normalfont\footnotesize}
+
+% suppress some fields in the bibliography to save space
+\AtEveryBibitem{\clearfield{eprint}}
+\AtEveryBibitem{\clearfield{eprintclass}}
+\AtEveryBibitem{\clearfield{eprint}}
+\AtEveryBibitem{\clearfield{eprinttype}}
+\AtEveryBibitem{\clearfield{doi}}
+
+% configure hyperref (already loaded by default)
+\hypersetup{
+	colorlinks=true,    % color links
+	linkcolor=blue,     % set color of internal links
+	citecolor=green,    % set color of links to bibliography
+	filecolor=magenta,  % set color of file links
+	urlcolor=cyan       % set color of urls      
+}
+
+% make arguments bold
+\usepackage{bm}
+
+% title
+\title{Testing {\boldmath $\Lambda$}-Free {\boldmath $f(Q)$} Cosmology}
+
+% author(s)
+% using hacky workaround for affiliations (see: https://github.com/anishathalye/gemini/issues/32)
+\author{
+\underline{\textbf{José Ferreira}} $^\text{\ttfamily 1,2}$ \and 
+Tiago Barreiro $^\text{\ttfamily 1,3}$ \and
+José Mimoso $^\text{\ttfamily 1,2}$ \and 
+Nelson J. Nunes $^\text{\ttfamily 1,2}$
+}
+
+% affiliation(s)
+\institute[shortinst]{
+\inst{1} \vspace{2.5mm} Institute of Astrophysics and Space Sciences
+\samelineand 
+\inst{2} \vspace{2.5mm} Faculty of Sciences of the University of Lisbon
+\and
+\vspace{-10mm}
+\inst{3} \vspace{2.5mm} ECEO, Universidade Lusófona de Humanidades e Tecnologia
+}
+
+% extra information to display below affiliations
+\extratitle{\underline{\textbf{Based on arXiv:XXXXXX}}}
+
+% footer
+% (comment out for no footer)
+\footercontent{
+    \vspace{1.5ex}
+    \hspace{\sepwidth}
+    \begin{minipage}{0.2\paperwidth}
+        \raggedright
+        jpmferreira@ciencias.ulisboa.pt
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.2\paperwidth}
+        \centering
+        \textbf{Testing {\boldmath $\Lambda$}-Free {\boldmath $f(Q)$} Cosmology}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.2\paperwidth}
+        \raggedleft
+        José Ferreira
+    \end{minipage}
+    \hspace{\sepwidth}
+    \vspace{1.5ex}
+}
+
+% logo(s)
+% (comment out for none)
+\logoright{\includegraphics[height=4.77cm,width=11.75cm]{figures/logos/FCUL.png}}
+\logoleft{\includegraphics[height=4.77cm,width=11.75cm]{figures/logos/IA.png}}
+
+% text on top of imagesx
+\usepackage{overpic}
+
+%---------------------------------------------------------------------------------------------------
+% Begin of Document
+%---------------------------------------------------------------------------------------------------
+\begin{document}
+
+\begin{frame}[t]
+\begin{columns}[t]
+\separatorcolumn
+
+% begin left column
+\begin{column}{\colwidth}
+    \input{sections/abstract}
+    \input{sections/cosmology}
+    \input{sections/dynamical-system}
+\end{column}
+
+\separatorcolumn
+
+% begin right column
+\begin{column}{\colwidth}
+    \input{sections/datasets}
+    \input{sections/constraints}
+    \input{sections/conclusions}
+    \input{sections/references}
+\end{column}
+
+\separatorcolumn
+\end{columns}
+
+% hacky acknowledgments
+% i have to find a way to place this on top of the footer systematically...
+\vspace{-0.4cm}
+\begin{center}
+    \scriptsize{
+    The authors would like to acknowledge financial support from Fundação Para a Ciência e a Tecnologia via the following projects: EXPL/FIS-AST/1368/2021, PTDC/FIS-AST/0054/2021, UIDB/04434/2020, UIDP/04434/2020 and CERN/FIS-PAR/0037/2019.
+    }
+\end{center}
+
+\end{frame}
+
+\end{document}
