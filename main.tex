@@ -1,27 +1,31 @@
-% TEMP:
+% References:
 % - https://github.com/andiac/gemini-cam
 % - a fork of https://github.com/anishathalye/gemini
 % - also refer to https://github.com/k4rtik/uchicago-poster
 
-% TO-DO/NOTAS: 
-% - (!) abstract pode ser um bloco com fundo diferente ou mesmo com uma ornamentacao mais pipi para se destacar.
-% - orientar o tema/color scheme para ter esta template organizada (l8er que parece tramado)
-% - footer estar ligeiramente offset, espaco a mais a esquerda e a direita e eu n sei pq...
-% - logos tb estao ligeiramente offset, acho que tem valores hardcoded na template
-% - o alert block eh um bloco sem header so para o caso de querer continuar um anterior
+% TODO:
+% - se falar sobre as timescales, acho que a imagem dos diferentes instantes de tempo no PPT deveriam vir para aqui
+% - secções:
+%   - Abstract,
+%   - Q-Hairy Black Holes (com mini introdução a dar a entender que existem várias soluções com cabelo e queremos estudar viabilidade astrofísica desta porque parecia tudo porreiro em simetria esférica),
+%   - Dynamical Evolutions (meter os diferentes snapshots que estão no artigo, talvez na mesma linha),
+%   - Conclusions
+
 
 %---------------------------------------------------------------------------------------------------
 % Preamble
 %---------------------------------------------------------------------------------------------------
+% document class
 \documentclass[final,20pt]{beamer}
 
-% import 
+% use beamer poster
 \usepackage[
 orientation=portrait,
 size=a1,
 scale=1.15  % 20 pt * 1.15 = 23pt
 ]{beamerposter}
 
+% set some lengths
 % for N columns pick \sepwidth and \colwidth such that (N+1)*\sepwidth + N*\colwidth = \paperwidth
 \newlength{\sepwidth}
 \newlength{\colwidth}
@@ -29,12 +33,12 @@ scale=1.15  % 20 pt * 1.15 = 23pt
 \setlength{\colwidth}{0.4625\paperwidth}
 \newcommand{\separatorcolumn}{\begin{column}{\sepwidth}\end{column}}
 
-% import the theme and the color theme
+% import the theme
 \makeatletter
 \def\input@path{{styles/}}
 \makeatother
-\usetheme{gemini}     
-\usecolortheme{nott}  
+\usetheme{gemini}
+\usecolortheme{nott}
 
 % figures & tables
 \usepackage{graphicx}
@@ -45,8 +49,14 @@ scale=1.15  % 20 pt * 1.15 = 23pt
 
 % math related packages
 \usepackage{amsmath}
-\usepackage{amssymb} 
+\usepackage{amssymb}
 \usepackage{amsthm}
+
+% bold
+\usepackage{bm}
+
+% text on top of imagesx
+\usepackage{overpic}
 
 % import and setup glossary
 \usepackage{glossaries-extra}
@@ -56,11 +66,11 @@ scale=1.15  % 20 pt * 1.15 = 23pt
 
 % import and configure bibLaTeX, a more modern alternative to natbib
 \usepackage[
-backend=biber,  % more modern backend compared to bibtex
-style=numeric,  % citation style
-sorting=none,   % all entries are processed in citation order
-maxbibnames=4,  % maximum number of authors before truncating
-maxcitenames=1  % number of authors to show before the "et al."
+    backend=biber,  % more modern backend compared to bibtex
+    style=numeric,  % citation style
+    sorting=none,   % all entries are processed in citation order
+    maxbibnames=4,  % maximum number of authors before truncating
+    maxcitenames=1  % number of authors to show before the "et al."
 ]{biblatex}
 \addbibresource{bibliography.bib}
 
@@ -80,36 +90,30 @@ maxcitenames=1  % number of authors to show before the "et al."
 	linkcolor=blue,     % set color of internal links
 	citecolor=green,    % set color of links to bibliography
 	filecolor=magenta,  % set color of file links
-	urlcolor=cyan       % set color of urls      
+	urlcolor=cyan       % set color of urls
 }
 
-% make arguments bold
-\usepackage{bm}
-
 % title
-\title{Testing {\boldmath $\Lambda$}-Free {\boldmath $f(Q)$} Cosmology}
+\title{Splitting the (Gravitational) Atom}
 
 % author(s)
-% using hacky workaround for affiliations (see: https://github.com/anishathalye/gemini/issues/32)
 \author{
-\underline{\textbf{José Ferreira}} $^\text{\ttfamily 1,2}$ \and 
-Tiago Barreiro $^\text{\ttfamily 1,3}$ \and
-José Mimoso $^\text{\ttfamily 1,2}$ \and 
-Nelson J. Nunes $^\text{\ttfamily 1,2}$
+    José Ferreira   \and
+    Carlos Herdeiro \and
+    Eugen Radu      \and
+    Miguel Zilhão
 }
 
 % affiliation(s)
 \institute[shortinst]{
-\inst{1} \vspace{2.5mm} Institute of Astrophysics and Space Sciences
-\samelineand 
-\inst{2} \vspace{2.5mm} Faculty of Sciences of the University of Lisbon
-\and
-\vspace{-10mm}
-\inst{3} \vspace{2.5mm} ECEO, Universidade Lusófona de Humanidades e Tecnologia
+    Center for R\&D in Mathematics and Applications \and
+    \vspace{-5mm}
+    University of Aveiro, Portugal
 }
 
 % extra information to display below affiliations
-\extratitle{\underline{\textbf{Based on arXiv:XXXXXX}}}
+% I think I coded this out, if I want to have this toggle on go and figure it out
+%\extratitle{\underline{\textbf{Based on arXiv:XXXXXX}}}
 
 % footer
 % (comment out for no footer)
@@ -118,12 +122,12 @@ Nelson J. Nunes $^\text{\ttfamily 1,2}$
     \hspace{\sepwidth}
     \begin{minipage}{0.2\paperwidth}
         \raggedright
-        jpmferreira@ciencias.ulisboa.pt
+        jpmferreira@ua.pt
     \end{minipage}
     \hfill
     \begin{minipage}{0.2\paperwidth}
         \centering
-        \textbf{Testing {\boldmath $\Lambda$}-Free {\boldmath $f(Q)$} Cosmology}
+        Splitting the (Gravitational) Atom
     \end{minipage}
     \hfill
     \begin{minipage}{0.2\paperwidth}
@@ -135,36 +139,30 @@ Nelson J. Nunes $^\text{\ttfamily 1,2}$
 }
 
 % logo(s)
-% (comment out for none)
-\logoright{\includegraphics[height=4.77cm,width=11.75cm]{figures/logos/FCUL.png}}
-\logoleft{\includegraphics[height=4.77cm,width=11.75cm]{figures/logos/IA.png}}
+\setlength{\maxlogowidth}{57.5ex}  % manually adjust this width to have the logos centered in their own columns
+\logoright{\includegraphics[height=4.77cm,width=11.75cm]{figures/logos/grav.png}}
+\logoleft{\includegraphics[height=4.22cm,width=11.75cm]{figures/logos/ua.png}}
 
-% text on top of imagesx
-\usepackage{overpic}
 
 %---------------------------------------------------------------------------------------------------
-% Begin of Document
+% Document
 %---------------------------------------------------------------------------------------------------
 \begin{document}
 
+% two column frame
 \begin{frame}[t]
 \begin{columns}[t]
 \separatorcolumn
 
-% begin left column
+% left column
 \begin{column}{\colwidth}
     \input{sections/abstract}
-    \input{sections/cosmology}
-    \input{sections/dynamical-system}
 \end{column}
 
 \separatorcolumn
 
-% begin right column
+% right column
 \begin{column}{\colwidth}
-    \input{sections/datasets}
-    \input{sections/constraints}
-    \input{sections/conclusions}
     \input{sections/references}
 \end{column}
 
@@ -173,12 +171,12 @@ Nelson J. Nunes $^\text{\ttfamily 1,2}$
 
 % hacky acknowledgments
 % i have to find a way to place this on top of the footer systematically...
-\vspace{-0.4cm}
-\begin{center}
-    \scriptsize{
-    The authors would like to acknowledge financial support from Fundação Para a Ciência e a Tecnologia via the following projects: EXPL/FIS-AST/1368/2021, PTDC/FIS-AST/0054/2021, UIDB/04434/2020, UIDP/04434/2020 and CERN/FIS-PAR/0037/2019.
-    }
-\end{center}
+%\vspace{-0.4cm}
+%\begin{center}
+%    \scriptsize{
+%    The authors would like to acknowledge financial support from HORIZON-MSCA2021-SE-01 Grant No. NewFunFiCO-101086251 and from CIDMA through FCT under the Multi-Annual Financing Program for R\&D Units, PTDC/FIS-AST/3041/2020, 2022.04560.PTDC and 2024.05617.CERN
+%    }
+%\end{center}
 
 \end{frame}
 
