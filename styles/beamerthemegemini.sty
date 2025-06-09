@@ -106,13 +106,13 @@
   \newcommand{\insertlogoright}{#1}
   \settowidth{\logorightwidth}{\insertlogoright}
   \addtolength{\logorightwidth}{10ex}
-  \setlength{\maxlogowidth}{\maxof{\logoleftwidth}{\logorightwidth}}
+  %\setlength{\maxlogowidth}{\maxof{\logoleftwidth}{\logorightwidth}}
 }
 \newcommand{\logoleft}[1]{
   \newcommand{\insertlogoleft}{#1}
   \settowidth{\logoleftwidth}{\insertlogoleft}
   \addtolength{\logoleftwidth}{10ex}
-  \setlength{\maxlogowidth}{\maxof{\logoleftwidth}{\logorightwidth}}
+  %\setlength{\maxlogowidth}{\maxof{\logoleftwidth}{\logorightwidth}}
 }
 
 % Headline
@@ -124,8 +124,7 @@
         \vskip5ex
         \ifdefined\insertlogoleft
         \vspace*{\fill}
-        \hspace{10ex}
-        \raggedright
+        \centering
         \insertlogoleft
         \vspace*{\fill}
         \else\fi
@@ -149,9 +148,8 @@
         \vskip5ex
         \ifdefined\insertlogoright
         \vspace*{\fill}
-        \raggedleft
+        \centering
         \insertlogoright
-        \hspace{10ex}
         \vspace*{\fill}
         \else\fi
       \end{column}
