@@ -1,0 +1,38 @@
+%---------------------------------------------------------------------------------------------------
+\begin{block}{Q-Hairy Black Holes}
+%---------------------------------------------------------------------------------------------------
+% - good enough
+
+Q-hairy \glspl{BH} are \textbf{static, spherically symmetric solutions} to the \gls{EMS} model \textbf{that support scalar hair} \cite{Herdeiro2020}. Recent simulations in spherical symmetry show these solutions can be stable and form dynamically \cite{Zhang2023}.
+
+To generate these solutions we take the following ansatz:
+%
+\begin{equation}
+    A = U(r) dt, \qquad \phi = \Phi(r) e^{-i \omega t}, \qquad ds^2 = -e^{2\mathcal{F}_0} \frac{S_0^2}{S_1^2} dt^2 + e^{2\mathcal{F}_1} S_1^4 d\Sigma^2,
+\end{equation}
+%
+where $U(r)$ is the electric potential, $\omega$ is the scalar field frequency and $\Phi(r)$ its radial profile, $S_0 = 1 - r_h/r$ and $S_1 = 1 + r_h/r$ with $r_h$ the horizon radius. $\mathcal{F}_0(r)$ and $\mathcal{F}_1(r)$ are unknown metric functions.
+
+For solutions to exist, the following conditions must be satisfied:
+\begin{itemize}
+    \item \textbf{Resonance:} $\omega = q U(r_h)$ (regularity at the horizon)
+    \item \textbf{Bound state:} $\omega \leq \mu$ (scalar field frequency bound)
+\end{itemize}
+
+Substituting the ansatz into the field equations yields families of solutions labeled by $r_h$ and $\omega$ that exhibit a \textbf{two-branch structure}: for each $(\omega, r_h)$ there are two possible solutions, lower and upper branch, merging at a single point. This is shown in the plot below.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.95\columnwidth]{figures/branches.png}
+    \caption{The total mass of the system $M_T$ versus the frequency of the scalar field $\omega$ for different values of horizon radius $r_h$.}
+\end{figure}
+
+These solutions feature a central charged \gls{BH} surrounded by a charged scalar field cloud, where the scalar field forms a localized hair structure around the \gls{BH}. The equilibrium is achieved due to the balance between the gravitational pull and electromagnetic repulsion. The morphology of a Q-Hairy \gls{BH} is shown below.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\columnwidth]{figures/bh.png}
+    \caption{The 3 dimensional profile of the density of the scalar field for a Q-Hairy \gls{BH}.}
+\end{figure}
+
+\end{block}

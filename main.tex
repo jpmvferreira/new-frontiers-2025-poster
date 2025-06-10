@@ -4,12 +4,11 @@
 % - also refer to https://github.com/k4rtik/uchicago-poster
 
 % TODO:
-% - se falar sobre as timescales, acho que a imagem dos diferentes instantes de tempo no PPT deveriam vir para aqui
-% - secções:
-%   - Abstract,
-%   - Q-Hairy Black Holes (com mini introdução a dar a entender que existem várias soluções com cabelo e queremos estudar viabilidade astrofísica desta porque parecia tudo porreiro em simetria esférica),
-%   - Dynamical Evolutions (meter os diferentes snapshots que estão no artigo, talvez na mesma linha),
-%   - Conclusions
+% - nas timescales por a imagem dos diferentes instantes de tempo do PPT
+% (!) posso meter fissão e absorção lado a lado e o tempo a evoluir de cima para baixo
+% |  fission     absorption
+% |   (...)        (...)
+% t  <- yah isto é suposto ser uma seta a apontar para baixo, é o que se tem
 
 
 %---------------------------------------------------------------------------------------------------
@@ -64,7 +63,7 @@ scale=1.15  % 20 pt * 1.15 = 23pt
 \glsdisablehyper  % disable hyperlinks to glossary
 \input{glossary}
 
-% import and configure bibLaTeX, a more modern alternative to natbib
+% import and configure bibLaTeX
 \usepackage[
     backend=biber,  % more modern backend compared to bibtex
     style=numeric,  % citation style
@@ -140,8 +139,8 @@ scale=1.15  % 20 pt * 1.15 = 23pt
 
 % logo(s)
 \setlength{\maxlogowidth}{57.5ex}  % manually adjust this width to have the logos centered in their own columns
-\logoright{\includegraphics[height=4.77cm,width=11.75cm]{figures/logos/grav.png}}
-\logoleft{\includegraphics[height=4.22cm,width=11.75cm]{figures/logos/ua.png}}
+\logoright{\includegraphics[height=4cm,width=10cm]{figures/logos/grav.png}}
+\logoleft{\includegraphics[height=3.6cm,width=10cm]{figures/logos/ua.png}}
 
 
 %---------------------------------------------------------------------------------------------------
@@ -157,12 +156,17 @@ scale=1.15  % 20 pt * 1.15 = 23pt
 % left column
 \begin{column}{\colwidth}
     \input{sections/abstract}
+    \input{sections/model}
+    \input{sections/q-hairy}
 \end{column}
 
 \separatorcolumn
 
 % right column
 \begin{column}{\colwidth}
+    \input{sections/evolutions}
+    \input{sections/instabilities}
+    \input{sections/conclusions}
     \input{sections/references}
 \end{column}
 
