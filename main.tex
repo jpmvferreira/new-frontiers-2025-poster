@@ -4,11 +4,10 @@
 % - also refer to https://github.com/k4rtik/uchicago-poster
 
 % TODO:
-% - nas timescales por a imagem dos diferentes instantes de tempo do PPT
-% (!) posso meter fissão e absorção lado a lado e o tempo a evoluir de cima para baixo
-% |  fission     absorption
-% |   (...)        (...)
-% t  <- yah isto é suposto ser uma seta a apontar para baixo, é o que se tem
+% - acabar instability timescales
+% - QR codes? onde?
+% - posso meter poster num projetor para ver como fica, ajustando para o tamanho físico ser o real
+% - ainda não sei formato do poster nem tempo da A.O.
 
 
 %---------------------------------------------------------------------------------------------------
@@ -82,6 +81,7 @@ scale=1.15  % 20 pt * 1.15 = 23pt
 \AtEveryBibitem{\clearfield{eprint}}
 \AtEveryBibitem{\clearfield{eprinttype}}
 \AtEveryBibitem{\clearfield{doi}}
+\AtEveryBibitem{\clearfield{url}}
 
 % configure hyperref (already loaded by default)
 \hypersetup{
@@ -158,13 +158,13 @@ scale=1.15  % 20 pt * 1.15 = 23pt
     \input{sections/abstract}
     \input{sections/model}
     \input{sections/q-hairy}
+    \input{sections/evolutions}
 \end{column}
 
 \separatorcolumn
 
 % right column
 \begin{column}{\colwidth}
-    \input{sections/evolutions}
     \input{sections/instabilities}
     \input{sections/conclusions}
     \input{sections/references}
@@ -175,12 +175,14 @@ scale=1.15  % 20 pt * 1.15 = 23pt
 
 % hacky acknowledgments
 % i have to find a way to place this on top of the footer systematically...
-%\vspace{-0.4cm}
-%\begin{center}
-%    \scriptsize{
-%    The authors would like to acknowledge financial support from HORIZON-MSCA2021-SE-01 Grant No. NewFunFiCO-101086251 and from CIDMA through FCT under the Multi-Annual Financing Program for R\&D Units, PTDC/FIS-AST/3041/2020, 2022.04560.PTDC and 2024.05617.CERN
-%    }
-%\end{center}
+\vspace{-0.6cm}
+\begin{center}
+    \scriptsize{
+    \textcolor{gray}{
+    The authors would like to acknowledge financial support from HORIZON-MSCA2021-SE-01 Grant No. NewFunFiCO-101086251 and from CIDMA through FCT under the Multi-Annual Financing Program for R\&D Units, PTDC/FIS-AST/3041/2020, 2022.04560.PTDC and 2024.05617.CERN
+    }
+    }
+\end{center}
 
 \end{frame}
 
