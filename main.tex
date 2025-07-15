@@ -3,11 +3,6 @@
 % - a fork of https://github.com/anishathalye/gemini
 % - also refer to https://github.com/k4rtik/uchicago-poster
 
-% TODO:
-% - posso meter poster num projetor para ver como fica, ajustando para o tamanho físico ser o real
-% - ainda não sei formato do poster nem tempo da A.O.
-
-
 %---------------------------------------------------------------------------------------------------
 % Preamble
 %---------------------------------------------------------------------------------------------------
@@ -17,7 +12,7 @@
 % use beamer poster
 \usepackage[
 orientation=portrait,
-size=a1,
+size=a0,
 scale=1.15  % 20 pt * 1.15 = 23pt
 ]{beamerposter}
 
@@ -35,6 +30,9 @@ scale=1.15  % 20 pt * 1.15 = 23pt
 \makeatother
 \usetheme{gemini}
 \usecolortheme{nott}
+
+% support for .svg
+\usepackage{svg}
 
 % figures & tables
 \usepackage{graphicx}
@@ -136,9 +134,9 @@ scale=1.15  % 20 pt * 1.15 = 23pt
 }
 
 % logo(s)
-\setlength{\maxlogowidth}{57.5ex}  % manually adjust this width to have the logos centered in their own columns
-\logoright{\includegraphics[height=4cm,width=10cm]{figures/logos/grav.png}}
-\logoleft{\includegraphics[height=3.6cm,width=10cm]{figures/logos/ua.png}}
+\setlength{\maxlogowidth}{57ex}  % manually adjust this width to have the logos centered in their own columns
+\logoright{\includegraphics[height=5.2cm,width=13cm]{figures/logos/grav.png}}
+\logoleft{\includegraphics[height=4.68cm,width=13cm]{figures/logos/ua.png}}
 
 
 %---------------------------------------------------------------------------------------------------
@@ -173,7 +171,7 @@ scale=1.15  % 20 pt * 1.15 = 23pt
 
 % hacky acknowledgments
 % i have to find a way to place this on top of the footer systematically...
-\vspace{-1.25cm}
+\vspace{-0.3cm}
 \begin{center}
     \scriptsize{
     \textcolor{gray}{
